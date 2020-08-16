@@ -1,0 +1,4 @@
+-desc
+*a map
+-detailed
+*The map has indications of your house, the nearby bus stop, and a fork in a road far north of your house.

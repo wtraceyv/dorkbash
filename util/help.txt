@@ -1,0 +1,5 @@
+Use 'h' or 'help' to get the help prompt.
+Use n, e, s, w, or their full counterparts north, east, etc. to move.
+Use 'look' to get a description of your environment.
+Use 'take' or 'grab' [item] to take an item from your environment and put it in your inventory.
+Use 'money', 'inventory'/'i', etc. to check your various stats ('check' to see an overview).

@@ -1,0 +1,8 @@
+-desc
+*This is the east end of your house's main hall. There's a window facing east toward to the outside, a spare bedroom to the north, and the rest of the house to the west.
+-short
+*Start House Hall
+&north
+*starthouse/starthouse-br
+&west
+*starthouse/starthouse-hallone

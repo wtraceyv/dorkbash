@@ -1,0 +1,14 @@
+-desc
+*This is part of the main hall in your one-story house. The room where you napped is to the south, and this hallway runs east-west.
+-short
+*Start House Hall
+&east
+*starthouse/starthouse-halltwo
+&south
+*starthouse/starthouse-start
+&west
+*starthouse/starthouse-living
+-item
+*sword
+-item
+*pen

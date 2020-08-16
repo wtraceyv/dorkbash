@@ -1,0 +1,12 @@
+-pocket
+*100
+-bank
+*500
+-armor
+*15
+-health
+*100
+-constitution
+*80
+-loc
+*world/locations/starthouse/starthouse-start.txt

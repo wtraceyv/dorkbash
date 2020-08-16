@@ -1,0 +1,6 @@
+-desc
+*It's another bedroom. Don't get get mad, I haven't thought this part up yet..
+-short
+*Spare Bedroom
+&south
+*starthouse/starthouse-halltwo

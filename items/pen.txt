@@ -1,0 +1,4 @@
+-desc
+*a pen
+-detailed
+*This is an ordinary pen, appearing to have sufficient ink and recent enough use to write.

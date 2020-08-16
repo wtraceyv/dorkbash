@@ -1,0 +1,4 @@
+-desc
+*an ordinary sword
+-detailed
+*The sword is decidedly of middle eastern origin, but seems disappointedly unmagical in nature.

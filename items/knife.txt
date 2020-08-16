@@ -1,0 +1,4 @@
+-desc
+*a knife
+-detailed
+*This is a red, fairly indistinct pocket knife.

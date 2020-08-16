@@ -1,0 +1,12 @@
+-desc
+*This is where your adventure begins. You see evidence that you were napping here earlier.
+-short
+*Start Room
+&north
+*starthouse/starthouse-hallone
+-item
+*map
+-item
+*knife
+-item
+*pen
