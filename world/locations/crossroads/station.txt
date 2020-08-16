@@ -1,0 +1,4 @@
+-desc
+*This remote bus stop is worringly barren. Can you even see something to eat here if you need it?
+-short
+*Crossroads Bustop
