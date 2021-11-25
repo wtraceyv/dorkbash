@@ -34,17 +34,43 @@ function drop {
 
 # show whole inventory
 function show {
+	# if asked for specific item
+	if [ $# -gt 1 ]
+	then
+		if [ $2 == 'money' ]
+		then
+			echo -n "Money: "
+			cat progress/stats.txt | grep -A 1 'bank' | grep '*' | cut -c 2-
+			exit 0	
+		elif [ $2 == 'health' ]
+		then
+			echo -n "Health: "
+			cat progress/stats.txt | grep -A 1 'health' | grep '*' | cut -c 2-
+			exit 0
+		elif [ $2 == 'armor' ]
+		then
+			echo -n "Armor: "
+			cat progress/stats.txt | grep -A 1 'armor' | grep '*' | cut -c 2-
+			exit 0
+		fi
+	fi
+	# check if we have any items
 	list=$( cat progress/inventory.txt | grep -A 1 'item' | grep '*' | cut -c 2- )
 	if [ -z "$list" ]
 	then
-		echo "You haven't got anything!"
+		echo "You haven't got any items!"
 		exit 0
 	fi
+	# list available items
 	echo 'Inventory: '
 	for i in $( cat progress/inventory.txt | grep -A 1 'item' | grep '*' | cut -c 2- )
 	do 
 		echo "- $( cat items/$i.txt | grep -A 1 'desc' | grep '*' | cut -c 2- )"
 	done
+	# list other stuff you may have
+	progress/access.sh stat money
+	progress/access.sh stat armor
+	progress/access.sh stat health
 }
 
 function examine {
@@ -74,7 +100,12 @@ then
 	drop $item
 elif [ $action == 'show' ]
 then
-	show
+	if [ $# -gt 1 ]
+	then
+		show $2
+	else
+		show
+	fi
 elif [ $action == 'look' ]
 then
 	examine $item

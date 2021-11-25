@@ -1,4 +1,4 @@
 -desc
 *a knife
 -detailed
-*This is a red, fairly indistinct pocket knife.
+*This is a red handled, fairly indistinct pocket knife.

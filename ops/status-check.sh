@@ -7,42 +7,36 @@
 
 # input: current money from main
 function money {
-
+	echo "*checks monies*"
+	ops/interact.sh show money
 }
 
 # input: current health from main
 function health {
-
+	echo "*does health check*"
+	ops/interact.sh show health
 }
 
 # input: inventory from main (array)
 function inventory {
-
+	ops/interact.sh show
 }
 
 # input: money, health, armor array
 function all {
-
+	ops/interact.sh show
+	echo "*also checks money, health, armor*"
 }
 
 # - - - - - -	Funnel input - - - - - - - - #
 
 if [ $# -lt 2 ]
 then
-	echo 'You must supply something to check status for.'
-	echo '-- money'
-	echo '-- health'
-	echo '-- inventory'
-	echo '-- all'
+	all
 elif [ $2 == 'money' ]
 then
-	echo 'Money checked.'
+	money
 elif [ $2 == 'health' ]
 then
-	echo 'Health checked.'
-elif [ $2 == 'inventory' ]
-then
-	echo 'Inventory returned.'
-else
-	echo 'All status checks made.'
+	health	
 fi

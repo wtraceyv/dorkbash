@@ -7,6 +7,6 @@
 -item
 *map
 -item
-*knife
--item
 *pen
+-item
+*knife

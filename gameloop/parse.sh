@@ -43,7 +43,7 @@ dropWords=("drop")
 # mid-fight actions
 attackWords=("hit" "attack" "destroy" "injure" "strike" "kill")
 shieldWords=("block" "shield")
-dodgeWords=("dodge")
+dodgeWords=("dodge" "avoid")
 
 # responses to peaceful speech
 negResponse=("no" "nope" "fuck" "hell" "nah")
@@ -56,8 +56,8 @@ for i in "${exitWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	echo 'Exit word detected!'
-	exit 0
+		echo 'Exit word detected!'
+		exit 0
 	fi
 done 
 
@@ -66,9 +66,9 @@ for i in "${helpWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	#echo 'Help word detected!'
-	cat "util/help.txt" | fold -s 
-	exit 0
+		#echo 'Help word detected!'
+		cat "util/help.txt" | fold -s 
+		exit 0
 	fi
 done 
 
@@ -77,9 +77,9 @@ for i in "${moveWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	#echo 'Move word detected!'
-	ops/move.sh "${fullCommand[@]}"
-	gameloop/main.sh
+		#echo 'Move word detected!'
+		ops/move.sh "${fullCommand[@]}"
+		gameloop/main.sh
 	fi
 done 
 
@@ -87,8 +87,13 @@ for i in "${lookWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	#echo 'Look word detected!'
-	world/ops/look.sh
+		echo 'Look word detected!'
+		if [ $# -gt 1 ]
+		then
+			ops/interact.sh "${fullCommand[@]}"
+		else
+			world/ops/look.sh
+		fi
 	exit 0
 	fi
 done 
@@ -97,8 +102,9 @@ for i in "${checkWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	echo 'Check word detected!'
-	exit 0
+		echo 'Check word detected!'
+		ops/status-check.sh "${fullCommand[@]}"	
+		exit 0
 	fi
 done 
 
@@ -106,9 +112,19 @@ for i in "${interactWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	echo 'Interact word detected!'
-	open/interact.sh "${fullCommand[@]}"
-	exit 0
+		echo 'Interact word detected!'
+		ops/interact.sh "${fullCommand[@]}"
+		exit 0
+	fi
+done 
+
+for i in "${dropWords[@]}"
+do
+	if [ $targetCommand == $i ]
+	then
+		echo 'Drop word detected!'
+		ops/interact.sh "${fullCommand[@]}"
+		exit 0
 	fi
 done 
 
@@ -116,8 +132,8 @@ for i in "${attackWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	echo 'Attack word detected!'
-	exit 0
+		echo 'Attack word detected!'
+		exit 0
 	fi
 done 
 
@@ -125,8 +141,8 @@ for i in "${shieldWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	echo 'Shield word detected!'
-	exit 0
+		echo 'Shield word detected!'
+		exit 0
 	fi
 done 
 
@@ -134,8 +150,8 @@ for i in "${dodgeWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	echo 'Dodge word detected!'
-	exit 0
+		echo 'Dodge word detected!'
+		exit 0
 	fi
 done 
 
@@ -143,8 +159,8 @@ for i in "${negResponse[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	echo 'Negative Response detected!'
-	exit 0
+		echo 'Negative Response detected!'
+		exit 0
 	fi
 done 
 
@@ -152,8 +168,8 @@ for i in "${posResponse[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	echo 'Positive Response detected!'
-	exit 0
+		echo 'Positive Response detected!'
+		exit 0
 	fi
 done 
 
@@ -161,12 +177,12 @@ for i in "${confusedResponse[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-	echo 'Confused Response detected!'
-	exit 0
+		echo 'Confused Response detected!'
+		exit 0
 	fi
 done 
 
 
 # can't find anything to match 
-echo 'Where are you trying to go with this?.'
+echo 'Where are you trying to go with this?'
 exit 0
