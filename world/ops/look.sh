@@ -4,6 +4,7 @@
 curLoc=$( progress/access.sh loc )
 
 cat $curLoc | grep -A 1 'desc' | grep '*' | cut -c 2- | fold -s -w 55
+echo 
 
 # copy loc file so I can read each item in a row
 grep -q 'item' $curLoc

@@ -59,6 +59,7 @@ function parseDir {
 		if [ ! $dirTest == '1' ]
 		then
 			progress/update.sh loc $dirTest
+			return
 		fi
 	elif [ $targetDir == "east" ] || [ $targetDir == "e" ]
 	then
@@ -66,6 +67,7 @@ function parseDir {
 		if [ ! $dirTest == '1' ]
 		then
 			progress/update.sh loc $dirTest
+			return
 		fi
 	elif [ $targetDir == "south" ] || [ $targetDir == "s" ]
 	then
@@ -73,19 +75,19 @@ function parseDir {
 		if [ ! $dirTest == '1' ]
 		then
 			progress/update.sh loc $dirTest
+			return
 		fi
 	elif [ $targetDir == "west" ] || [ $targetDir == "w" ]
 	then
-		dirTest=$( getLocForDir 'w' )
+		dirTest=$( getLocForDir 'west' )
 		if [ ! $dirTest == '1' ]
 		then
 			progress/update.sh loc $dirTest
+			return
 		fi
-	else
-		# no good direction 
-		echo "That's ... not going to be an option."
-		# indicate fail
 	fi
+	# reached bottom, no good location in this dir
+	echo "Can't see a clear way in that direction.."
 }
 
 # take in player's loc, modify accordingly
@@ -103,13 +105,6 @@ function move {
 # - - - - - funnel file usage, execute appropriate functions - - - - #
 fullCommand=( "$@" )
 
-# JUST FOR TEST 
-if [ $1 == 'test' ]
-then
-	echo $( getLocForDir $2 )
-	exit 0
-fi
-
 # the command is an implicit move (one arg -> desired dir)
 implicitDirs=("n" "north" "e" "east" "s" "south" "w" "west")
 if [ $# -eq 1 ] && [[ "${implicitDirs[@]}" =~ $1 ]]
@@ -125,7 +120,6 @@ then
 	check $2
 # the command want to execute an explicit move (supplies move word)
 else
-	echo '--executing a move--'
 	wantDir=$2
 	move "$wantDir"
 fi

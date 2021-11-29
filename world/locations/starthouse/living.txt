@@ -1,0 +1,8 @@
+-desc
+*You stand in an apparent living room, rather decrepid if you ask me. Ancient furniture has been stacked along all the walls under dusty tarps. At least there's a nice sunset out the main window. You can return to the main hallway in the east.
+-short
+*Living Room
+&east
+*starthouse/hallone
+-item
+*lantern

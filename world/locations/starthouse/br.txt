@@ -3,4 +3,4 @@
 -short
 *Spare Bedroom
 &south
-*starthouse/starthouse-halltwo
+*starthouse/halltwo

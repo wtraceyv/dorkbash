@@ -3,11 +3,11 @@
 -short
 *Start House Hall
 &east
-*starthouse/starthouse-halltwo
+*starthouse/halltwo
 &south
-*starthouse/starthouse-start
+*starthouse/start
 &west
-*starthouse/starthouse-living
+*starthouse/living
 -item
 *sword
 -item

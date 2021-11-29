@@ -3,6 +3,6 @@
 -short
 *Start House Hall
 &north
-*starthouse/starthouse-br
+*starthouse/br
 &west
-*starthouse/starthouse-hallone
+*starthouse/hallone

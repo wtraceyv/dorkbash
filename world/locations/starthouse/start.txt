@@ -3,7 +3,7 @@
 -short
 *Start Room
 &north
-*starthouse/starthouse-hallone
+*starthouse/hallone
 -item
 *map
 -item
