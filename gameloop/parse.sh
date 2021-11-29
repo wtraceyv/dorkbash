@@ -87,7 +87,7 @@ for i in "${lookWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-		echo 'Look word detected!'
+		# echo 'Look word detected!'
 		if [ $# -gt 1 ]
 		then
 			ops/interact.sh "${fullCommand[@]}"
@@ -102,7 +102,7 @@ for i in "${checkWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-		echo 'Check word detected!'
+		# echo 'Check word detected!'
 		ops/status-check.sh "${fullCommand[@]}"	
 		exit 0
 	fi
@@ -112,7 +112,7 @@ for i in "${interactWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-		echo 'Interact word detected!'
+		# echo 'Interact word detected!'
 		ops/interact.sh "${fullCommand[@]}"
 		exit 0
 	fi
@@ -122,7 +122,7 @@ for i in "${dropWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-		echo 'Drop word detected!'
+		# echo 'Drop word detected!'
 		ops/interact.sh "${fullCommand[@]}"
 		exit 0
 	fi

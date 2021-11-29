@@ -1,5 +1,5 @@
 -desc
-*This is where your adventure begins. You see evidence that you were napping here earlier.
+*This is where your adventure begins. You see evidence that you were napping here earlier. You can exit to a main hall to the north.
 -short
 *Start Room
 &north
