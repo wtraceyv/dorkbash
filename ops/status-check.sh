@@ -7,13 +7,11 @@
 
 # input: current money from main
 function money {
-	echo "*checks monies*"
 	ops/interact.sh show money
 }
 
 # input: current health from main
 function health {
-	echo "*does health check*"
 	ops/interact.sh show health
 }
 
@@ -25,7 +23,6 @@ function inventory {
 # input: money, health, armor array
 function all {
 	ops/interact.sh show
-	echo "*also checks money, health, armor*"
 }
 
 # - - - - - -	Funnel input - - - - - - - - #

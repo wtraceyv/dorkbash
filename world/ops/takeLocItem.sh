@@ -13,8 +13,9 @@ touch temp.txt
 # also be sure to save desc and other items
 directions=('north' 'east' 'south' 'west')
 
-# rebuild desc
+# rebuild desc/short
 cat $locFile | grep -A 1 'desc' >> temp.txt
+cat $locFile | grep -A 1 'short' >> temp.txt
 # rebuild any directions
 for i in "${directions[@]}"
 do

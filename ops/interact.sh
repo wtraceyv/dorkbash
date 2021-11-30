@@ -35,19 +35,19 @@ function drop {
 # show whole inventory
 function show {
 	# if asked for specific item
-	if [ $# -gt 1 ]
+	if [ $# -gt 0 ]
 	then
-		if [ $2 == 'money' ]
+		if [ $1 == 'money' ]
 		then
 			echo -n "Money: "
 			cat progress/stats.txt | grep -A 1 'bank' | grep '*' | cut -c 2-
 			exit 0	
-		elif [ $2 == 'health' ]
+		elif [ $1 == 'health' ]
 		then
 			echo -n "Health: "
 			cat progress/stats.txt | grep -A 1 'health' | grep '*' | cut -c 2-
 			exit 0
-		elif [ $2 == 'armor' ]
+		elif [ $1 == 'armor' ]
 		then
 			echo -n "Armor: "
 			cat progress/stats.txt | grep -A 1 'armor' | grep '*' | cut -c 2-
@@ -59,18 +59,21 @@ function show {
 	if [ -z "$list" ]
 	then
 		echo "You haven't got any items!"
-		exit 0
+	else
+		# list available items
+		echo 'Inventory: '
+		for i in $( cat progress/inventory.txt | grep -A 1 'item' | grep '*' | cut -c 2- )
+		do 
+			echo "- $( cat items/$i.txt | grep -A 1 'desc' | grep '*' | cut -c 2- )"
+		done
 	fi
-	# list available items
-	echo 'Inventory: '
-	for i in $( cat progress/inventory.txt | grep -A 1 'item' | grep '*' | cut -c 2- )
-	do 
-		echo "- $( cat items/$i.txt | grep -A 1 'desc' | grep '*' | cut -c 2- )"
-	done
 	# list other stuff you may have
-	progress/access.sh stat money
-	progress/access.sh stat armor
-	progress/access.sh stat health
+	echo -n "Armor: "
+	cat progress/stats.txt | grep -A 1 'armor' | grep '*' | cut -c 2-
+	echo -n "Money: "
+	cat progress/stats.txt | grep -A 1 'bank' | grep '*' | cut -c 2-
+	echo -n "Health: "
+	cat progress/stats.txt | grep -A 1 'health' | grep '*' | cut -c 2-
 }
 
 function examine {
@@ -88,7 +91,6 @@ function changeState {
 }
 
 # - - - - - -	Funnel input - - - - - - - - #
-
 action=$1
 item=$2
 
@@ -100,12 +102,7 @@ then
 	drop $item
 elif [ $action == 'show' ]
 then
-	if [ $# -gt 1 ]
-	then
-		show $2
-	else
-		show
-	fi
+	show $item
 elif [ $action == 'look' ]
 then
 	examine $item

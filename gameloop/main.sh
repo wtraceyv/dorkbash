@@ -16,8 +16,11 @@ while true
 do
 	# check if trying to quit, if yes break to outer loop
 	for i in "${exitWords[@]}"
-	do 
-		if [ $input == $i ]
+	do  
+		if [[ $input = *" "* ]]
+		then
+			break
+		elif [ $input == $i ]
 		then
 			break 2
 		fi
