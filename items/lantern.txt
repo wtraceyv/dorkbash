@@ -1,0 +1,4 @@
+-desc
+*an old but functional lantern
+-detailed
+*You wish you could assign an age to this lantern. It could be 2 or 200 years old and all that would matter is that it will probably light.

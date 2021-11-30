@@ -9,4 +9,4 @@
 -constitution
 *80
 -loc
-*world/locations/starthouse/starthouse-start.txt
+*world/locations/starthouse/start.txt

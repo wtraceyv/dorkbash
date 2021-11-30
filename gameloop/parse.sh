@@ -36,7 +36,7 @@ saveWords=("save" "write")
 # peaceful actions
 moveWords=("go" "move" "walk" "run" "n" "e" "s" "w")
 lookWords=("look" "l")
-checkWords=("show" "check" "money" "inventory" "armor" "bank")
+checkWords=("show" "check" "money" "i" "inventory" "armor" "bank")
 interactWords=("take" "grab")
 dropWords=("drop")
 
@@ -56,7 +56,7 @@ for i in "${exitWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-		echo 'Exit word detected!'
+		#echo 'Exit word detected!'
 		exit 0
 	fi
 done 
@@ -185,4 +185,3 @@ done
 
 # can't find anything to match 
 echo 'Where are you trying to go with this?'
-exit 0
