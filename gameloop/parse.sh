@@ -5,7 +5,7 @@
 
 if [ "$#" -lt 1 ]
 then
-	echo 'Supply a command to parse.'
+	echo "Well, you've got something to say, don't you?"
 	gameloop/main.sh
 fi
 
@@ -79,7 +79,7 @@ do
 	then
 		#echo 'Move word detected!'
 		ops/move.sh "${fullCommand[@]}"
-		gameloop/main.sh
+		exit 0
 	fi
 done 
 
@@ -112,7 +112,7 @@ for i in "${interactWords[@]}"
 do
 	if [ $targetCommand == $i ]
 	then
-		# echo 'Interact word detected!'
+		#echo 'Interact word detected!'
 		ops/interact.sh "${fullCommand[@]}"
 		exit 0
 	fi

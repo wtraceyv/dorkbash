@@ -5,8 +5,8 @@
 &north
 *starthouse/hallone
 -item
-*map
--item
 *pen
 -item
 *knife
+-item
+*map

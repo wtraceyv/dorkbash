@@ -1,4 +1,4 @@
 -desc
-*a picture frame
+*a framed picture 
 -detailed
 *The picture frame contains a photo of someone you do not recognize, holding what does appear to be a younger you.
